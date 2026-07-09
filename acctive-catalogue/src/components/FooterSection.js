@@ -42,7 +42,8 @@ export default function FooterSection() {
     <footer className="acctive-footer py-5" id="contact">
       <Container>
         <Row className="g-4 mb-5">
-          <Col lg={5}>
+          {/* Brand Column */}
+          <Col lg={4}>
             <div className="footer-logo mb-3">ACCTIVE</div>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: 370 }}>
               ACCTIVE Sports Industries, Meerut — Your trusted partner for premium sportswear manufacturing.
@@ -70,6 +71,8 @@ export default function FooterSection() {
               </a>
             </div>
           </Col>
+
+          {/* Categories */}
           <Col sm={6} lg={2}>
             <h5 className="footer-heading mb-3">Categories</h5>
             <a className="footer-link" href="#products">Collar T-Shirts</a>
@@ -78,6 +81,8 @@ export default function FooterSection() {
             <a className="footer-link" href="#products">Lowers</a>
             <a className="footer-link" href="#products">Tracksuits</a>
           </Col>
+
+          {/* Materials */}
           <Col sm={6} lg={2}>
             <h5 className="footer-heading mb-3">Materials</h5>
             <a className="footer-link" href="#">Lycra</a>
@@ -87,12 +92,22 @@ export default function FooterSection() {
             <a className="footer-link" href="#">NS Lycra</a>
             <a className="footer-link" href="#">Elite Knit</a>
           </Col>
-          <Col sm={6} lg={3}>
-            <h5 className="footer-heading mb-3">Contact</h5>
-            <a className="footer-link" href="#">
-              <LocationIcon /> Meerut, Uttar Pradesh, India
-            </a>
-            <a className="footer-link" href="mailto:activesportswears@gmail.com">
+
+          {/* Contact + Address */}
+          <Col sm={6} lg={4}>
+            <h5 className="footer-heading mb-3">Contact & Location</h5>
+
+            {/* Full Address block */}
+            <div className="footer-address-block">
+              <LocationIcon />
+              <div>
+                <span className="footer-address-line">41/31A Mokhampur, Plot No. 36</span>
+                <span className="footer-address-line">Sports Complex Enclave, Delhi Road</span>
+                <span className="footer-address-line">Meerut, Uttar Pradesh – 250002</span>
+              </div>
+            </div>
+
+            <a className="footer-link mt-2" href="mailto:activesportswears@gmail.com">
               <MailIcon /> activesportswears@gmail.com
             </a>
             <a className="footer-link" href="tel:+919997100375">
