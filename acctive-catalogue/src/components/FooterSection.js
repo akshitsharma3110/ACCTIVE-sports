@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Container, Row, Col } from 'react-bootstrap';
 
 /* SVG Icon components for clean footer */
@@ -132,6 +133,32 @@ export default function FooterSection() {
             </a>
           </Col>
         </Row>
+
+        {/* QR Code Section */}
+        <div className="footer-qr-section">
+          <div className="footer-qr-card">
+            <div className="footer-qr-image-wrap">
+              <Image
+                src="/qr-catalogue.png"
+                alt="Scan to view ACCTIVE Sports Catalogue"
+                width={130}
+                height={130}
+                className="footer-qr-img"
+              />
+            </div>
+            <div className="footer-qr-info">
+              <p className="footer-qr-title">📱 Scan to View Catalogue</p>
+              <p className="footer-qr-subtitle">Point your camera at the QR code to instantly open the ACCTIVE Sports product catalogue.</p>
+              <a
+                href="/qr-catalogue.png"
+                download="ACCTIVE-Catalogue-QR.png"
+                className="footer-qr-download"
+              >
+                ⬇ Download QR Code
+              </a>
+            </div>
+          </div>
+        </div>
 
         <div className="footer-bottom py-3 d-flex flex-wrap justify-content-between align-items-center">
           <span>© 2026 ACCTIVE Sports Industries, Meerut. All rights reserved.</span>
