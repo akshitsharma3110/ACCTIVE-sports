@@ -184,7 +184,7 @@ export default function CatalogueSection() {
           </div>
 
           {/* Subcategory Tabs */}
-          <div className="d-flex justify-content-center gap-2 flex-wrap mb-4">
+          <div className="d-flex justify-content-center gap-2 flex-wrap mb-4 sub-tab-scroll-row">
             {subKeys.map((key) => (
               <button
                 key={key}

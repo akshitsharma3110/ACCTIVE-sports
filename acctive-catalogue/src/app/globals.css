@@ -1355,16 +1355,312 @@ body {
 }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — Mobile-First Overhaul
    ============================================================ */
+
+/* ── ≤ 991px: Navbar compact ── */
+@media (max-width: 991px) {
+  .navbar-container {
+    grid-template-columns: 1fr auto auto;
+    padding: 0 1rem;
+    gap: 0.5rem;
+  }
+  .navbar-logo {
+    justify-content: flex-start;
+  }
+  .logo-text { font-size: 1.3rem; }
+  .logo-badge { font-size: 0.44rem; padding: 3px 8px; }
+}
+
+/* ── ≤ 768px: Tablet / large phone ── */
 @media (max-width: 768px) {
-  .hero-title { font-size: clamp(2rem,8vw,3rem); }
-  .lightbox-prev { left: 10px; }
-  .lightbox-next { right: 10px; }
-  .lightbox-body { max-width: 95vw; }
-  .category-pills-scroll { overflow-x: auto; flex-wrap: nowrap !important; }
+  /* Hero */
+  .hero-section { min-height: 100svh; }
+  .hero-content-wrapper { padding-top: 90px; padding-bottom: 2rem; }
+  .hero-title { font-size: clamp(2rem, 9vw, 3rem) !important; }
+  .hero-subtitle { font-size: 0.95rem; padding: 0 0.5rem; }
+  .hero-badge { font-size: 0.73rem; padding: 6px 16px; }
+  .btn-accent, .btn-glass { padding: 11px 24px; font-size: 0.84rem; }
+  .stat-number { font-size: 2rem; }
+  .stat-label { font-size: 0.68rem; }
+  .scroll-indicator { display: none; }
+
+  /* Marquee */
   .sports-marquee-track { gap: 32px; }
   .marquee-item { font-size: 0.68rem; }
   .marquee-item svg { width: 22px; height: 22px; }
-  .navbar-brand-center { font-size: 1.2rem; }
+
+  /* Category nav — horizontal scroll */
+  .category-nav-bar { padding: 10px 0; top: 60px; }
+  .category-pills-scroll {
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding: 4px 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .category-pills-scroll::-webkit-scrollbar { display: none; }
+  .category-pill { padding: 8px 16px; font-size: 0.78rem; white-space: nowrap; flex-shrink: 0; }
+  .pill-count { font-size: 0.62rem; padding: 2px 6px; }
+
+  /* Subcategory tabs — horizontal scroll */
+  .sub-tab-scroll-row {
+    overflow-x: auto;
+    flex-wrap: nowrap !important;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .sub-tab-scroll-row::-webkit-scrollbar { display: none; }
+  .sub-tab { white-space: nowrap; flex-shrink: 0; padding: 7px 16px; font-size: 0.76rem; }
+
+  /* Section */
+  .section-title { font-size: clamp(1.6rem, 6vw, 2.5rem) !important; }
+  .section-desc { font-size: 0.92rem; padding: 0 0.5rem; }
+  .section-tag { font-size: 0.68rem; }
+
+  /* Product grid — 2 columns on phone */
+  .product-card-3d { border-radius: 12px; }
+  .card-info { padding: 0.7rem 0.9rem; }
+  .card-category-tag { font-size: 0.58rem; }
+  .card-title { font-size: 0.82rem; }
+
+  /* Lightbox — reposition nav inside viewport */
+  .lightbox-overlay { padding: 1rem 0.5rem; }
+  .lightbox-body { max-width: 95vw; max-height: 90vh; }
+  .lightbox-body img { max-height: 65vh; border-radius: 10px; }
+  .lightbox-prev { left: 4px; top: 50%; }
+  .lightbox-next { right: 4px; top: 50%; }
+  .lightbox-nav-btn { width: 40px; height: 40px; font-size: 1rem; }
+  .lightbox-close-btn { top: -44px; width: 36px; height: 36px; font-size: 1.1rem; }
+  .lightbox-info h4 { font-size: 1rem; }
+  .lightbox-info p { font-size: 0.8rem; }
+
+  /* Feature cards — single column on small */
+  .feature-card { padding: 1.5rem; }
+  .feature-icon { width: 50px; height: 50px; font-size: 1.3rem; }
+  .feature-title { font-size: 1rem; }
+  .feature-desc { font-size: 0.83rem; }
+
+  /* Footer */
+  .acctive-footer { padding-top: 3rem !important; padding-bottom: 1.5rem !important; }
+  .footer-logo { font-size: 1.5rem; }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  .footer-whatsapp-cta { font-size: 0.8rem; padding: 9px 18px; }
+
+  /* Mobile menu */
+  .mobile-menu { padding: 1.5rem 1rem; }
+  .mobile-nav-item { padding: 14px 16px; font-size: 1rem; border-radius: 12px; }
+
+  /* Stats row  */
+  .g-5 { --bs-gutter-x: 1rem; --bs-gutter-y: 0; }
 }
+
+/* ── ≤ 480px: Small phones ── */
+@media (max-width: 480px) {
+  .navbar-container {
+    height: 56px;
+    padding: 0 0.75rem;
+  }
+  .logo-text { font-size: 1.15rem; }
+  .logo-badge { display: none; }
+  .theme-btn { padding: 5px 8px 5px 5px; gap: 5px; }
+  .theme-btn-track { width: 24px; height: 24px; font-size: 0.82rem; }
+
+  .hero-content-wrapper { padding-top: 80px; }
+  .hero-title { font-size: clamp(1.8rem, 10vw, 2.5rem) !important; }
+  .hero-badge { font-size: 0.68rem; padding: 5px 12px; }
+  .btn-accent, .btn-glass { padding: 10px 18px; font-size: 0.8rem; }
+
+  /* 2-col product grid stays */
+  .card-image-wrapper { aspect-ratio: 3 / 4; }
+
+  /* Lightbox full-width on tiny phones */
+  .lightbox-overlay { padding: 0.5rem; }
+  .lightbox-body { max-width: 100%; }
+  .lightbox-body img { border-radius: 8px; max-height: 60vh; }
+  .lightbox-prev { left: 2px; }
+  .lightbox-next { right: 2px; }
+  .lightbox-nav-btn { width: 34px; height: 34px; }
+  .lightbox-close-btn { top: -38px; width: 32px; height: 32px; font-size: 1rem; }
+
+  /* Category pills full-width scroll */
+  .category-pill { padding: 7px 12px; font-size: 0.72rem; }
+
+  /* Footer compact */
+  .footer-heading { font-size: 0.8rem; }
+  .footer-link { font-size: 0.82rem; }
+  .footer-address-block { font-size: 0.82rem; }
+
+  /* Section padding */
+  .py-5 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+  .mb-5 { margin-bottom: 2rem !important; }
+}
+
+/* ── ≤ 360px: Very small phones ── */
+@media (max-width: 360px) {
+  .hero-title { font-size: clamp(1.6rem, 11vw, 2.2rem) !important; }
+  .stat-number { font-size: 1.7rem; }
+  .section-title { font-size: 1.5rem !important; }
+}
+
+/* ── Touch: Disable 3D tilt card on touch devices (perf) ── */
+@media (hover: none) and (pointer: coarse) {
+  .product-card-3d:hover {
+    transform: none;
+  }
+  .product-card-3d .card-overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(7,7,13,0.75) 0%, transparent 60%);
+  }
+  .product-card-3d .view-btn {
+    transform: translateY(0);
+  }
+  .product-card-3d:hover .card-image-wrapper img { transform: none; }
+}
+
+/* ============================================================
+   LIGHT MODE — Color Contrast Fixes
+   ============================================================ */
+[data-theme="light"] .text-secondary,
+[data-theme="light"] .section-desc,
+[data-theme="light"] .feature-desc,
+[data-theme="light"] .footer-address-line,
+[data-theme="light"] .footer-link,
+[data-theme="light"] .hero-subtitle {
+  color: rgba(15, 23, 42, 0.72) !important;
+}
+
+[data-theme="light"] .nav-item {
+  color: rgba(15, 23, 42, 0.70);
+}
+
+[data-theme="light"] .nav-item:hover,
+[data-theme="light"] .nav-item.active {
+  color: rgba(15, 23, 42, 1);
+}
+
+[data-theme="light"] .mobile-nav-item {
+  color: rgba(15, 23, 42, 0.78);
+  background: rgba(255,255,255,0.85);
+  border-color: rgba(0,0,0,0.10);
+}
+
+[data-theme="light"] .mobile-nav-item:hover {
+  color: rgba(15, 23, 42, 1);
+  background: rgba(255,255,255,1);
+  border-color: rgba(0,153,204,0.4);
+}
+
+[data-theme="light"] .mobile-nav-item.active {
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+  background: rgba(109,40,217,0.06);
+}
+
+[data-theme="light"] .theme-btn {
+  color: rgba(15, 23, 42, 0.75);
+  background: rgba(255,255,255,0.70);
+  border-color: rgba(0,0,0,0.12);
+}
+
+[data-theme="light"] .theme-btn:hover {
+  color: rgba(15, 23, 42, 1);
+  background: rgba(255,255,255,0.95);
+}
+
+[data-theme="light"] .hamburger span {
+  background: rgba(15, 23, 42, 0.85);
+}
+
+[data-theme="light"] .mobile-nav-index {
+  color: var(--accent-2);
+}
+
+[data-theme="light"] .category-pill {
+  color: rgba(15, 23, 42, 0.72);
+  background: rgba(255,255,255,0.80);
+  border-color: rgba(0,0,0,0.12);
+}
+
+[data-theme="light"] .category-pill:hover {
+  color: rgba(15, 23, 42, 1);
+  background: rgba(255,255,255,1);
+  border-color: rgba(0,153,204,0.4);
+}
+
+[data-theme="light"] .sub-tab {
+  color: rgba(15, 23, 42, 0.60);
+  border-color: rgba(0,0,0,0.12);
+}
+
+[data-theme="light"] .sub-tab:hover {
+  color: rgba(15, 23, 42, 0.85);
+  border-color: rgba(0,0,0,0.20);
+}
+
+[data-theme="light"] .product-count-badge {
+  color: rgba(15, 23, 42, 0.65);
+}
+
+[data-theme="light"] .marquee-item {
+  color: rgba(15, 23, 42, 0.55);
+}
+
+[data-theme="light"] .stat-label {
+  color: rgba(15, 23, 42, 0.55);
+}
+
+[data-theme="light"] .footer-social-btn {
+  color: rgba(15, 23, 42, 0.65);
+  background: rgba(255,255,255,0.75);
+  border-color: rgba(0,0,0,0.12);
+}
+
+[data-theme="light"] .footer-social-btn:hover {
+  color: #fff;
+  border-color: transparent;
+}
+
+[data-theme="light"] .card-title {
+  color: rgba(15, 23, 42, 0.95);
+}
+
+[data-theme="light"] .feature-title {
+  color: rgba(15, 23, 42, 0.95);
+}
+
+[data-theme="light"] .footer-bottom {
+  color: rgba(15, 23, 42, 0.55);
+}
+
+[data-theme="light"] .hero-badge {
+  color: rgba(15, 23, 42, 0.68);
+  background: rgba(255,255,255,0.70);
+  border-color: rgba(0,0,0,0.12);
+}
+
+[data-theme="light"] .scroll-indicator span {
+  color: rgba(15, 23, 42, 0.45);
+}
+
+[data-theme="light"] .lightbox-close-btn,
+[data-theme="light"] .lightbox-nav-btn {
+  background: rgba(255,255,255,0.85);
+  border-color: rgba(0,0,0,0.12);
+  color: rgba(15, 23, 42, 0.85);
+}
+
+[data-theme="light"] .lightbox-backdrop {
+  background: rgba(0,0,0,0.75);
+}
+
+[data-theme="light"] .card-overlay {
+  background: linear-gradient(to top, rgba(15,23,42,0.80) 0%, transparent 55%);
+}
+
