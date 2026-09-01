@@ -1,10 +1,11 @@
-'use client';
+﻿'use client';
 
 import dynamic from 'next/dynamic';
 import NavbarComponent from '@/components/NavbarComponent';
 import HeroSection from '@/components/HeroSection';
 import CatalogueSection from '@/components/CatalogueSection';
 import FeaturesSection from '@/components/FeaturesSection';
+import AboutSection from '@/components/AboutSection';
 import FooterSection from '@/components/FooterSection';
 import BackToTop from '@/components/BackToTop';
 
@@ -19,8 +20,10 @@ export default function Home() {
       <HeroSection />
       <CatalogueSection />
       <FeaturesSection />
+      <AboutSection />
       <FooterSection />
       <BackToTop />
     </>
   );
 }
+

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -8,21 +8,21 @@ export default function NavbarComponent() {
   const [menuOpen, setMenuOpen]   = useState(false);
   const [activeLink, setActiveLink] = useState('hero');
 
-  /* ── Persist theme ── */
+  /* â”€â”€ Persist theme â”€â”€ */
   useEffect(() => {
     const saved = localStorage.getItem('acctive-theme') || 'dark';
     setTheme(saved);
     document.documentElement.setAttribute('data-theme', saved);
   }, []);
 
-  /* ── Scroll detection ── */
+  /* â”€â”€ Scroll detection â”€â”€ */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  /* ── Active section via IntersectionObserver ── */
+  /* â”€â”€ Active section via IntersectionObserver â”€â”€ */
   useEffect(() => {
     const ids = ['hero', 'products', 'features', 'contact'];
     const observers = ids.map(id => {
@@ -38,7 +38,7 @@ export default function NavbarComponent() {
     return () => observers.forEach(o => o?.disconnect());
   }, []);
 
-  /* ── Theme toggle ── */
+  /* â”€â”€ Theme toggle â”€â”€ */
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
@@ -50,18 +50,19 @@ export default function NavbarComponent() {
     { id: 'hero',     label: 'Home' },
     { id: 'products', label: 'Catalogue' },
     { id: 'features', label: 'Why Us' },
+    { id: 'about',    label: 'About Us' },
     { id: 'contact',  label: 'Contact' },
   ];
 
   return (
     <header className={`acctive-navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
 
-      {/* ── Gradient accent line on top ── */}
+      {/* â”€â”€ Gradient accent line on top â”€â”€ */}
       <div className="navbar-accent-line" />
 
       <div className="navbar-container">
 
-        {/* ══ LEFT: Nav links ══ */}
+        {/* â•â• LEFT: Nav links â•â• */}
         <nav className="navbar-nav-left" aria-label="Primary navigation">
           {navLinks.map(link => (
             <a
@@ -76,15 +77,15 @@ export default function NavbarComponent() {
           ))}
         </nav>
 
-        {/* ══ CENTRE: Logo ══ */}
-        <a href="#hero" className="navbar-logo" aria-label="ACCTIVE Sports — Home">
+        {/* â•â• CENTRE: Logo â•â• */}
+        <a href="#hero" className="navbar-logo" aria-label="ACCTIVE Sports â€” Home">
           <span className="logo-shimmer-wrap">
             <span className="logo-text">ACCTIVE</span>
           </span>
           <span className="logo-badge">Sports</span>
         </a>
 
-        {/* ══ RIGHT: Controls ══ */}
+        {/* â•â• RIGHT: Controls â•â• */}
         <div className="navbar-controls">
           {/* Theme toggle */}
           <button
@@ -95,7 +96,7 @@ export default function NavbarComponent() {
           >
             <span className="theme-btn-track">
               <span className="theme-btn-thumb">
-                {theme === 'dark' ? '🌙' : '☀️'}
+                {theme === 'dark' ? 'ðŸŒ™' : 'â˜€ï¸'}
               </span>
             </span>
             <span className="theme-btn-label">{theme === 'dark' ? 'Light' : 'Dark'}</span>
@@ -128,7 +129,7 @@ export default function NavbarComponent() {
         </div>
       </div>
 
-      {/* ══ MOBILE MENU OVERLAY ══ */}
+      {/* â•â• MOBILE MENU OVERLAY â•â• */}
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`} aria-hidden={!menuOpen}>
         <nav>
           {navLinks.map((link, i) => (
@@ -162,3 +163,4 @@ export default function NavbarComponent() {
     </header>
   );
 }
+
