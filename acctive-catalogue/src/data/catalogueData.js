@@ -329,4 +329,76 @@ const CATALOGUE_DATA = {
   },
 };
 
+// ============================================================
+// URL NORMALISATION
+//
+// The image folders contain spaces and characters like "&", "," and "()".
+// A browser only percent-encodes the spaces when it requests <img src="…">,
+// and the static file server will not match "&" or "," unencoded — which
+// silently 404s every "FRONT & BACK SUBLIMATION", "ELITE, HEAVY PMC" and
+// "LYCRA (SPANDEX)" image. Encoding each path segment here fixes all of them
+// in one place and keeps the on-disk folder names untouched.
+// ============================================================
+
+function toUrlPath(diskPath) {
+  return diskPath
+    .split('/')
+    .map((segment) => (segment ? encodeURIComponent(segment) : segment))
+    .join('/');
+}
+
+for (const category of Object.values(CATALOGUE_DATA)) {
+  for (const sub of Object.values(category.subcategories)) {
+    for (const image of sub.images) {
+      image.diskPath = image.path;
+      image.path = toUrlPath(image.path);
+    }
+  }
+}
+
+// ============================================================
+// DERIVED HELPERS
+// Everything below is computed from CATALOGUE_DATA, so the
+// numbers shown on the site can never drift from the data.
+// ============================================================
+
+export const CATEGORY_KEYS = Object.keys(CATALOGUE_DATA);
+
+/** Flat list of every product, enriched with its category/subcategory context. */
+export const ALL_PRODUCTS = CATEGORY_KEYS.flatMap((categoryKey) => {
+  const category = CATALOGUE_DATA[categoryKey];
+  return Object.entries(category.subcategories).flatMap(([subKey, sub]) =>
+    sub.images.map((image) => ({
+      ...image,
+      categoryKey,
+      categoryName: category.name,
+      categoryIcon: category.icon,
+      subKey,
+      subName: sub.name,
+      specs: sub.specs,
+      tags: sub.tags || [],
+    }))
+  );
+});
+
+/** slug -> product, for resolving ?product=<slug> deep links. */
+export const PRODUCTS_BY_SLUG = new Map(ALL_PRODUCTS.map((p) => [p.slug, p]));
+
+/** Total number of products in a single category. */
+export function countInCategory(categoryKey) {
+  const category = CATALOGUE_DATA[categoryKey];
+  if (!category) return 0;
+  return Object.values(category.subcategories).reduce(
+    (sum, sub) => sum + sub.images.length,
+    0
+  );
+}
+
+export const TOTAL_PRODUCTS = ALL_PRODUCTS.length;
+export const TOTAL_CATEGORIES = CATEGORY_KEYS.length;
+export const TOTAL_SUBCATEGORIES = CATEGORY_KEYS.reduce(
+  (sum, key) => sum + Object.keys(CATALOGUE_DATA[key].subcategories).length,
+  0
+);
+
 export default CATALOGUE_DATA;

@@ -2,167 +2,182 @@
 
 import Image from 'next/image';
 import { Container, Row, Col } from 'react-bootstrap';
+import CATALOGUE_DATA, { CATEGORY_KEYS } from '@/data/catalogueData';
+import { COMPANY, CONTACT, ADDRESS, ADDRESS_LINES, whatsappUrl } from '@/config/site';
+import WhatsAppIcon from '@/components/icons/WhatsAppIcon';
 
-/* SVG Icon components for clean footer */
 const LocationIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-    <circle cx="12" cy="10" r="3"/>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+    <circle cx="12" cy="10" r="3" />
   </svg>
 );
 
 const MailIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-    <polyline points="22,6 12,13 2,6"/>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+    <polyline points="22,6 12,13 2,6" />
   </svg>
 );
 
 const PhoneIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
   </svg>
 );
 
 const InstagramIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
   </svg>
 );
 
-const WhatsAppIcon = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-  </svg>
-);
+/* Fabrics we actually manufacture in — pulled straight from the product specs. */
+const MATERIALS = [
+  'Lycra',
+  'NS Lycra',
+  'Superpoly',
+  'SAP Mattie',
+  'Elite / PMC Knit',
+  'TPU',
+];
 
 export default function FooterSection() {
+  const enquiryUrl = whatsappUrl();
+
   return (
     <footer className="acctive-footer py-5" id="contact">
       <Container>
         <Row className="g-4 mb-5">
-          {/* Brand Column */}
+          {/* Brand */}
           <Col lg={4}>
-            <div className="footer-logo mb-3">ACCTIVE</div>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: 370 }}>
-              ACCTIVE Sports Industries, Meerut — Your trusted partner for premium sportswear manufacturing.
-              From sublimation T-shirts to performance tracksuits, we deliver quality that speaks for itself.
+            <div className="footer-logo mb-3">{COMPANY.shortName}</div>
+            <p className="footer-blurb">
+              {COMPANY.name}, {ADDRESS.city} — your trusted partner for premium
+              sportswear manufacturing. From sublimation T-shirts to performance tracksuits, we
+              deliver quality that speaks for itself.
             </p>
-            {/* Social Media Icons */}
+
             <div className="footer-social-row">
               <a
-                href="https://www.instagram.com/acctivesports.76"
+                href={CONTACT.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-btn instagram"
-                aria-label="Follow us on Instagram"
+                aria-label="Follow ACCTIVE Sports on Instagram"
               >
                 <InstagramIcon />
               </a>
               <a
-                href="https://wa.me/919997100375"
+                href={enquiryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-btn whatsapp"
-                aria-label="Chat on WhatsApp"
+                aria-label="Chat with ACCTIVE Sports on WhatsApp"
               >
-                <WhatsAppIcon />
+                <WhatsAppIcon size={18} />
               </a>
             </div>
           </Col>
 
           {/* Categories */}
           <Col sm={6} lg={2}>
-            <h5 className="footer-heading mb-3">Categories</h5>
-            <a className="footer-link" href="#products">Collar T-Shirts</a>
-            <a className="footer-link" href="#products">Round Neck T-Shirts</a>
-            <a className="footer-link" href="#products">Shorts</a>
-            <a className="footer-link" href="#products">Lowers</a>
-            <a className="footer-link" href="#products">Tracksuits</a>
+            <h2 className="footer-heading mb-3">Categories</h2>
+            {CATEGORY_KEYS.map((key) => (
+              <a key={key} className="footer-link" href="#products">
+                {CATALOGUE_DATA[key].name}
+              </a>
+            ))}
           </Col>
 
-          {/* Materials */}
+          {/* Materials — informational, not navigation */}
           <Col sm={6} lg={2}>
-            <h5 className="footer-heading mb-3">Materials</h5>
-            <a className="footer-link" href="#">Lycra</a>
-            <a className="footer-link" href="#">Superpoly</a>
-            <a className="footer-link" href="#">SAP Mattie</a>
-            <a className="footer-link" href="#">TPU</a>
-            <a className="footer-link" href="#">NS Lycra</a>
-            <a className="footer-link" href="#">Elite Knit</a>
+            <h2 className="footer-heading mb-3">Materials</h2>
+            <ul className="footer-list">
+              {MATERIALS.map((material) => (
+                <li key={material}>{material}</li>
+              ))}
+            </ul>
           </Col>
 
-          {/* Contact + Address */}
+          {/* Contact */}
           <Col sm={6} lg={4}>
-            <h5 className="footer-heading mb-3">Contact & Location</h5>
+            <h2 className="footer-heading mb-3">Contact &amp; Location</h2>
 
-            {/* Full Address block */}
-            <div className="footer-address-block">
+            <address className="footer-address-block">
               <LocationIcon />
               <div>
-                <span className="footer-address-line">41/31A Mokhampur, Plot No. 36</span>
-                <span className="footer-address-line">Sports Complex Enclave, Delhi Road</span>
-                <span className="footer-address-line">Meerut, Uttar Pradesh – 250002</span>
+                {ADDRESS_LINES.map((line) => (
+                  <span key={line} className="footer-address-line">{line}</span>
+                ))}
               </div>
-            </div>
+            </address>
 
-            <a className="footer-link mt-2" href="mailto:activesportswears@gmail.com">
-              <MailIcon /> activesportswears@gmail.com
+            <a className="footer-link mt-2" href={`mailto:${CONTACT.email}`}>
+              <MailIcon /> {CONTACT.email}
             </a>
-            <a className="footer-link" href="tel:+919997100375">
-              <PhoneIcon /> +91 9997100375
-            </a>
-            <a className="footer-link" href="tel:+918006277622">
-              <PhoneIcon /> +91 8006277622
-            </a>
-            <a className="footer-link" href="https://www.instagram.com/acctivesports.76" target="_blank" rel="noopener noreferrer">
-              <InstagramIcon /> @acctivesports.76
-            </a>
-
-            {/* WhatsApp Enquiry CTA */}
+            {CONTACT.phones.map((phone) => (
+              <a key={phone} className="footer-link" href={`tel:${phone.replace(/\s/g, '')}`}>
+                <PhoneIcon /> {phone}
+              </a>
+            ))}
             <a
-              href="https://wa.me/919997100375"
+              className="footer-link"
+              href={CONTACT.instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon /> {CONTACT.instagram.handle}
+            </a>
+
+            <a
+              href={enquiryUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="footer-whatsapp-cta"
             >
-              <WhatsAppIcon />
+              <WhatsAppIcon size={18} />
               For Enquiry — WhatsApp
             </a>
           </Col>
         </Row>
 
-        {/* QR Code Section */}
+        {/* QR Code */}
         <div className="footer-qr-section">
           <div className="footer-qr-card">
             <div className="footer-qr-image-wrap">
               <Image
                 src="/qr-catalogue.png"
-                alt="Scan to view ACCTIVE Sports Catalogue"
+                alt="QR code linking to the ACCTIVE Sports online catalogue"
                 width={130}
                 height={130}
                 className="footer-qr-img"
               />
             </div>
             <div className="footer-qr-info">
-              <p className="footer-qr-title">📱 Scan to View Catalogue</p>
-              <p className="footer-qr-subtitle">Point your camera at the QR code to instantly open the ACCTIVE Sports product catalogue.</p>
+              <p className="footer-qr-title">Scan to view the catalogue</p>
+              <p className="footer-qr-subtitle">
+                Point your camera at the QR code to open the {COMPANY.shortName} product catalogue
+                instantly — handy for cards, packaging and trade-show stands.
+              </p>
               <a
                 href="/qr-catalogue.png"
                 download="ACCTIVE-Catalogue-QR.png"
                 className="footer-qr-download"
               >
-                ⬇ Download QR Code
+                Download QR code
               </a>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom py-3 d-flex flex-wrap justify-content-between align-items-center">
-          <span>© 2026 ACCTIVE Sports Industries, Meerut. All rights reserved.</span>
-          <span>Premium Sportswear Manufacturer</span>
+          <span>
+            © {new Date().getFullYear()} {COMPANY.name}, {ADDRESS.city}. All rights reserved.
+          </span>
+          <span>{COMPANY.tagline}</span>
         </div>
       </Container>
     </footer>

@@ -1,7 +1,8 @@
-﻿'use client';
+'use client';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
+import { COMPANY } from '@/config/site';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -27,7 +28,7 @@ const pillars = [
         <path d="M12 6v6l4 2"/>
       </svg>
     ),
-    label: 'Since 2003',
+    label: `Since ${COMPANY.foundedYear}`,
     sub: 'Two decades of excellence',
   },
   {
@@ -82,15 +83,15 @@ export default function AboutSection() {
 
               <p className="about-body">
                 The Acctive sports industry in Meerut, founded by{' '}
-                <strong>Shivinder Sharma</strong>, has a rich history dating back several decades.
+                <strong>{COMPANY.founder}</strong>, has a rich history dating back several decades.
                 Meerut has been a hub for sports goods manufacturing and has played a significant
                 role in the growth of the sports industry in India. As a former venture of{' '}
                 <em>Pt. Sohan Lal and Sons Hockey makers</em>, Acctive took a vibrant turn in{' '}
-                <strong>2003</strong>, as a brand to help you elevate your performance and style.
+                <strong>{COMPANY.foundedYear}</strong>, as a brand to help you elevate your performance and style.
               </p>
 
               <p className="about-body">
-                We offer a wide range of high-quality garments, including men's Polo T-shirts,
+                We offer a wide range of high-quality garments, including men’s Polo T-shirts,
                 Round Neck T-shirts, Printed Hooded Jackets, and Polyester Lycra Cycling Dresses.
               </p>
 
@@ -113,12 +114,12 @@ export default function AboutSection() {
                 <strong>Acctive Sports Industries.</strong>
                 <br />
                 <a
-                  href="https://www.activesportsindustries.in"
+                  href={COMPANY.website}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="about-website-link"
                 >
-                  www.activesportsindustries.in
+                  {COMPANY.website.replace(/^https?:\/\//, '')}
                 </a>
               </p>
             </motion.div>

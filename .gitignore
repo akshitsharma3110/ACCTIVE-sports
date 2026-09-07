@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Vercel
+.vercel
+
+# Environment files
+.env*
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+
+# Source photography kept locally only.
+# These are byte-identical duplicates of acctive-catalogue/public/images —
+# the copies the site actually serves — so tracking them twice added ~30 MB
+# to the repository for no benefit.
+INDIAMART CATALOUGE/

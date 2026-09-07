@@ -118,11 +118,25 @@ function EnergyOrb({ position, color, size = 0.3 }) {
   );
 }
 
+/* Deterministic PRNG (mulberry32) — a fixed seed keeps the particle field pure
+   and identical on every render, which Math.random() would not be. */
+function createRandom(seed) {
+  let a = seed;
+  return function random() {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 /* --- Floating Particles --- */
 function Particles({ count = 400 }) {
   const pointsRef = useRef();
 
   const { positions, colors } = useMemo(() => {
+    const random = createRandom(0x5eed1234);
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
     const palette = [
@@ -132,10 +146,10 @@ function Particles({ count = 400 }) {
       new THREE.Color('#f72585'),
     ];
     for (let i = 0; i < count; i++) {
-      pos[i * 3] = (Math.random() - 0.5) * 25;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 25;
-      pos[i * 3 + 2] = (Math.random() - 0.5) * 25;
-      const c = palette[Math.floor(Math.random() * palette.length)];
+      pos[i * 3] = (random() - 0.5) * 25;
+      pos[i * 3 + 1] = (random() - 0.5) * 25;
+      pos[i * 3 + 2] = (random() - 0.5) * 25;
+      const c = palette[Math.floor(random() * palette.length)];
       col[i * 3] = c.r;
       col[i * 3 + 1] = c.g;
       col[i * 3 + 2] = c.b;

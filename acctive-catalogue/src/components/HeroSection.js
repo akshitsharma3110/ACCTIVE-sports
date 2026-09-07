@@ -2,6 +2,19 @@
 
 import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
+import { COMPANY, ADDRESS } from '@/config/site';
+import {
+  TOTAL_PRODUCTS,
+  TOTAL_CATEGORIES,
+  TOTAL_SUBCATEGORIES,
+} from '@/data/catalogueData';
+
+/* Counts come from the catalogue data, so they can never go stale. */
+const HERO_STATS = [
+  { value: `${TOTAL_PRODUCTS}`, label: 'Products' },
+  { value: `${TOTAL_CATEGORIES}`, label: 'Categories' },
+  { value: `${TOTAL_SUBCATEGORIES}`, label: 'Sub-Collections' },
+];
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -27,7 +40,7 @@ function SportsMarquee() {
   /* Duplicate items for seamless infinite scroll */
   const doubled = [...sportsItems, ...sportsItems];
   return (
-    <div className="sports-marquee-wrapper">
+    <div className="sports-marquee-wrapper" aria-hidden="true">
       <div className="sports-marquee-track">
         {doubled.map((item, i) => (
           <div key={i} className="marquee-item">
@@ -49,8 +62,8 @@ export default function HeroSection() {
           <Col lg={10} xl={9}>
             <motion.div {...fadeUp(0)}>
               <div className="hero-badge mb-4">
-                <span className="pulse-dot"></span>
-                Meerut, India — Since Inception
+                <span className="pulse-dot" aria-hidden="true"></span>
+                {ADDRESS.city}, India — Since {COMPANY.foundedYear}
               </div>
             </motion.div>
 
@@ -83,18 +96,12 @@ export default function HeroSection() {
 
             <motion.div {...fadeUp(0.4)}>
               <Row className="justify-content-center g-5">
-                <Col xs={4} md={3}>
-                  <div className="stat-number">145+</div>
-                  <div className="stat-label">Products</div>
-                </Col>
-                <Col xs={4} md={3}>
-                  <div className="stat-number">5</div>
-                  <div className="stat-label">Categories</div>
-                </Col>
-                <Col xs={4} md={3}>
-                  <div className="stat-number">17+</div>
-                  <div className="stat-label">Sub-Collections</div>
-                </Col>
+                {HERO_STATS.map((stat) => (
+                  <Col key={stat.label} xs={4} md={3}>
+                    <div className="stat-number">{stat.value}</div>
+                    <div className="stat-label">{stat.label}</div>
+                  </Col>
+                ))}
               </Row>
             </motion.div>
           </Col>
