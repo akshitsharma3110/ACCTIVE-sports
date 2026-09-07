@@ -14,7 +14,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "Superpoly / Polyester",
           printType: "Front & Back Sublimation",
-          moq: "50 pieces",
+          moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
           weight: "160–180 GSM",
         },
@@ -31,7 +31,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "Superpoly / Polyester",
           printType: "Full Body Sublimation",
-          moq: "50 pieces",
+          moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
           weight: "160–180 GSM",
         },
@@ -52,7 +52,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "SAP Mattie",
           printType: "Solid / Plain",
-          moq: "25 pieces",
+          moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
           weight: "180–200 GSM",
         },
@@ -81,7 +81,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "Superpoly / Polyester",
           printType: "Front & Back Sublimation",
-          moq: "50 pieces",
+          moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
           weight: "155–175 GSM",
         },
@@ -98,7 +98,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "Superpoly / Polyester",
           printType: "Front Sublimation",
-          moq: "50 pieces",
+          moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
           weight: "155–175 GSM",
         },
@@ -115,7 +115,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "Superpoly / Polyester",
           printType: "Full Body Sublimation",
-          moq: "50 pieces",
+          moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
           weight: "155–175 GSM",
         },
@@ -132,7 +132,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "Polyester / Microfibre",
           printType: "Plain / Solid",
-          moq: "25 pieces",
+          moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
           weight: "160 GSM",
         },
@@ -161,7 +161,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "Elite Knit / PMC / Diagonal Knit",
           printType: "Sublimation / Solid",
-          moq: "50 pieces",
+          moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
           weight: "200–230 GSM",
         },
@@ -178,7 +178,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "Lycra / Knitted Lycra (Spandex)",
           printType: "Sublimation / Solid",
-          moq: "50 pieces",
+          moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
           weight: "180–210 GSM",
         },
@@ -195,7 +195,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "NS Lycra",
           printType: "Sublimation / Solid",
-          moq: "50 pieces",
+          moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
           weight: "180–200 GSM",
         },
@@ -220,7 +220,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "Diagonal / Heavy Knit / Adidas Knit",
           printType: "Sublimation / Solid",
-          moq: "50 pieces",
+          moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
           weight: "220–250 GSM",
         },
@@ -237,7 +237,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "Elite / Heavy PMC",
           printType: "Sublimation / Solid",
-          moq: "50 pieces",
+          moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
           weight: "200–230 GSM",
         },
@@ -254,7 +254,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "Lycra / NS Lycra",
           printType: "Sublimation / Solid",
-          moq: "50 pieces",
+          moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
           weight: "180–210 GSM",
         },
@@ -279,7 +279,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "Lycra",
           printType: "Sublimation / Solid",
-          moq: "25 sets",
+          moq: "10 sets",
           sizes: "S, M, L, XL, XXL",
           weight: "180–200 GSM",
         },
@@ -296,7 +296,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "NS Lycra",
           printType: "Sublimation / Solid",
-          moq: "25 sets",
+          moq: "10 sets",
           sizes: "S, M, L, XL, XXL",
           weight: "190–215 GSM",
         },
@@ -313,7 +313,7 @@ const CATALOGUE_DATA = {
         specs: {
           fabric: "TPU (Thermoplastic Polyurethane)",
           printType: "Sublimation / Solid",
-          moq: "25 sets",
+          moq: "10 sets",
           sizes: "S, M, L, XL, XXL",
           weight: "210–240 GSM",
         },
