@@ -10,7 +10,7 @@
  * to your registered domain. The fallback is only used for local development.
  */
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.activesportsindustries.in'
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.acctivesports.in'
 ).replace(/\/$/, '');
 
 export const COMPANY = {
@@ -19,7 +19,7 @@ export const COMPANY = {
   tagline: 'Premium Sportswear Manufacturer',
   foundedYear: 2003,
   founder: 'Shivinder Sharma',
-  website: 'https://www.activesportsindustries.in',
+  website: 'https://www.acctivesports.in',
 };
 
 export const CONTACT = {
