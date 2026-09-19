@@ -12,7 +12,7 @@ const CATALOGUE_DATA = {
       "front-back-sublimation": {
         name: "Front & Back Sublimation",
         specs: {
-          fabric: "Superpoly / Polyester",
+          fabric: "Polyester",
           printType: "Front & Back Sublimation",
           moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
@@ -29,7 +29,7 @@ const CATALOGUE_DATA = {
       "full-sublimation": {
         name: "Full Sublimation",
         specs: {
-          fabric: "Superpoly / Polyester",
+          fabric: "Polyester",
           printType: "Full Body Sublimation",
           moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
@@ -79,7 +79,7 @@ const CATALOGUE_DATA = {
       "front-back-sublimation": {
         name: "Front & Back Sublimation",
         specs: {
-          fabric: "Superpoly / Polyester",
+          fabric: "Polyester",
           printType: "Front & Back Sublimation",
           moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
@@ -96,7 +96,7 @@ const CATALOGUE_DATA = {
       "front-sublimation": {
         name: "Front Sublimation",
         specs: {
-          fabric: "Superpoly / Polyester",
+          fabric: "Polyester",
           printType: "Front Sublimation",
           moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
@@ -113,7 +113,7 @@ const CATALOGUE_DATA = {
       "full-sublimation": {
         name: "Full Sublimation",
         specs: {
-          fabric: "Superpoly / Polyester",
+          fabric: "Polyester",
           printType: "Full Body Sublimation",
           moq: "10 pieces",
           sizes: "S, M, L, XL, XXL",
