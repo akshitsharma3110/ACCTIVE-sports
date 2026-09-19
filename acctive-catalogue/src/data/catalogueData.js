@@ -269,6 +269,35 @@ const CATALOGUE_DATA = {
     },
   },
 
+  jackets: {
+    name: "Jackets",
+    icon: "🧥",
+    description: "Premium Track Jackets in Butter NS fabric — soft touch, breathable, windproof & lightweight for all-day performance.",
+    subcategories: {
+      "butter-ns": {
+        name: "Track Jacket — Butter NS",
+        specs: {
+          fabric: "Polyester",
+          printType: "Full Body Sublimation",
+          moq: "10 pieces",
+          sizes: "S, M, L, XL, XXL",
+          weight: "200–230 GSM",
+        },
+        tags: ["jacket", "track jacket", "butter ns", "sublimation", "windproof", "breathable", "lightweight", "sports jacket"],
+        images: [
+          { file: "JBN1.png", path: "/images/JACKETS/BUTTER NS/JBN1.png", title: "Track Jacket Butter NS — Navy Red", slug: "jacket-bn-1" },
+          { file: "JBN2.png", path: "/images/JACKETS/BUTTER NS/JBN2.png", title: "Track Jacket Butter NS — Blue Yellow", slug: "jacket-bn-2" },
+          { file: "JBN3.png", path: "/images/JACKETS/BUTTER NS/JBN3.png", title: "Track Jacket Butter NS — Teal White", slug: "jacket-bn-3" },
+          { file: "JBN4.png", path: "/images/JACKETS/BUTTER NS/JBN4.png", title: "Track Jacket Butter NS — Sky Blue", slug: "jacket-bn-4" },
+          { file: "JBN5.png", path: "/images/JACKETS/BUTTER NS/JBN5.png", title: "Track Jacket Butter NS — Teal Neon", slug: "jacket-bn-5" },
+          { file: "JBN6.png", path: "/images/JACKETS/BUTTER NS/JBN6.png", title: "Track Jacket Butter NS — White Lime", slug: "jacket-bn-6" },
+          { file: "JBN7.png", path: "/images/JACKETS/BUTTER NS/JBN7.png", title: "Track Jacket Butter NS — Yellow Red Black", slug: "jacket-bn-7" },
+          { file: "JBN8.png", path: "/images/JACKETS/BUTTER NS/JBN8.png", title: "Track Jacket Butter NS — Peach Blue", slug: "jacket-bn-8" },
+        ],
+      },
+    },
+  },
+
   tracksuits: {
     name: "Tracksuits",
     icon: "🏃",

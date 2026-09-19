@@ -6,7 +6,7 @@ import { TOTAL_PRODUCTS, TOTAL_CATEGORIES } from '@/data/catalogueData';
 const description =
   `Complete product catalogue of ${COMPANY.name}, Meerut — a premium sportswear ` +
   `manufacturer. ${TOTAL_PRODUCTS}+ designs across ${TOTAL_CATEGORIES} categories: collar & round neck ` +
-  'T-shirts, shorts, lowers and tracksuits in sublimation prints and performance fabrics.';
+  'T-shirts, jackets, shorts, lowers and tracksuits in sublimation prints and performance fabrics.';
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -26,6 +26,7 @@ export const metadata = {
     'custom team jerseys India',
     'lycra shorts manufacturer',
     'tracksuit manufacturer',
+    'sports jackets manufacturer',
     'polo t-shirt wholesale',
     'sports lowers Meerut',
   ],
